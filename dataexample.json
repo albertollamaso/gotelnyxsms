@@ -1,0 +1,39 @@
+"data": {
+    "event_type": "message.received",
+    "id": "a64d2f92-9592-40ef-98b7-d08a9f341c13",
+    "occurred_at": "2020-03-17T00:46:06.173+00:00",
+    "payload": {
+      "completed_at": null,
+      "cost": null,
+      "direction": "inbound",
+      "encoding": "GSM-7",
+      "errors": [],
+      "from": {
+        "carrier": "",
+        "line_type": "long_code",
+        "phone_number": "+57301778XXXX",
+        "status": "webhook_delivered"
+      },
+      "id": "2faa5e8f-31a7-437a-8417-e2beee03efbf",
+      "media": [],
+      "messaging_profile_id": "a5fc38ba-789b-479e-b4f3-c7668a6a5e02",
+      "organization_id": "53c77443-0a6c-4e83-b3d5-b7f611d9920a",
+      "parts": 1,
+      "received_at": "2020-03-17T00:46:06.164+00:00",
+      "record_type": "message",
+      "sent_at": null,
+      "tags": [],
+      "text": "My text Message",
+      "to": "+1786591XXXX",
+      "type": "SMS",
+      "valid_until": null,
+      "webhook_failover_url": null,
+      "webhook_url": "https://ad59cjv1.ngrok.io"
+    },
+    "record_type": "event"
+  },
+  "meta": {
+    "attempt": 1,
+    "delivered_to": "https://ad59cjv1.ngrok.io"
+  }
+}
