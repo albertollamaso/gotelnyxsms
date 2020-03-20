@@ -8,8 +8,10 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"time"
 
+	"github.com/gorilla/handlers"
 	"github.com/gorilla/mux"
 )
 
@@ -59,6 +61,10 @@ func SMSHandler(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func Healthz(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintln(w, "OK")
+}
+
 func SendSlackNotification(webhookUrl string, msg string) error {
 
 	slackBody, _ := json.Marshal(SlackRequestBody{Text: msg})
@@ -87,8 +93,10 @@ func main() {
 
 	r := mux.NewRouter()
 	r.HandleFunc("/", SMSHandler).Methods("POST")
+	r.HandleFunc("/", Healthz).Methods("GET")
+	loggedRouter := handlers.LoggingHandler(os.Stdout, r)
 	srv := &http.Server{
-		Handler:      r,
+		Handler:      loggedRouter,
 		Addr:         "0.0.0.0:8000",
 		WriteTimeout: 15 * time.Second,
 		ReadTimeout:  15 * time.Second,
